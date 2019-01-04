@@ -1,0 +1,37 @@
+%パッケージ導入
+
+\usepackage{amsmath,amssymb,ascmac,fancybox}	%基本パッケージ
+\usepackage[dvipdfmx]{color}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{url}
+\usepackage{siunitx}
+\usepackage{layout}		%layout確認用
+\usepackage{tcolorbox}		%tcolorboxとその拡張用パッケージ
+	\tcbuselibrary{raster,skins}	
+	\tcbuselibrary{xparse}
+	\tcbuselibrary{breakable}
+\usepackage{fancyhdr}		%ページスタイル用パッケージ
+\usepackage{subcaption}		%並べた図に異なる見出しを付ける為のパッケージ
+\usepackage{mhchem}		%化学式など用パッケージ
+\usepackage{bm}
+\usepackage{physics}
+%パッケージ導入終わり
+
+%graphicフォルダ指定
+\graphicspath{{graphics/}}
+
+%各種マクロ設定
+\newcommand{\emp}[1]{\textcolor{red}{\textgt{\bf #1}}}	%太字、赤色
+\newcommand{\gtb}[1]{\textgt{\textbf{#1}}}	%太字ゴシック
+\newcommand{\ex}{\underline{\gtb{例}}}		%「例」の字　太字と下線付き
+\newcommand{\refer}[1]{(\ref{#1})}		%括弧つき式番号等参照
+\newcommand{\partdif}[2]{\frac{\partial #1}{\partial #2}}	%偏微分 \pardif{a}{b}でaをbで偏微分した表記になる
+\newcommand{\substi}[2]{\left.#1\right|_{#2}}		%縦線代入
+\newcommand{\Vector}[3]{\left( \begin{array}{c} #1 \\ #2 \\ #3 \end{array} \right)}	%ベクトル成分表示
+
+
+%各種環境
+\newenvironment{column}[1]{\begin{boxnote}{\large \textbf{\textgt{コラム　#1}}} \vspace{3pt} \\}{\end{boxnote}}	%コラムボックス環境
+\newenvironment{matome}{\begin{tcolorbox}[enhanced,title= \gtb{まとめ},		
+  	attach boxed title to top left={xshift=3mm, yshift*=-\tcboxedtitleheight/2}]}
+{\end{tcolorbox}}												%まとめボックス環境
